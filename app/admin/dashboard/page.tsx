@@ -114,7 +114,7 @@ export default function AdminDashboard() {
             </div>
 
             <GithubSync
-              repo="Bluehostn/Seagreats"
+              repo="Bluehostn/Seagreats-vs"
               branch="main"
               autoSync={autoSync}
               syncInterval={60} // دقيقة
@@ -149,7 +149,7 @@ export default function AdminDashboard() {
             <h2 className="text-xl font-semibold mb-4">روابط مفيدة</h2>
             <div className="space-y-2">
               <a 
-                href="https://github.com/Bluehostn/Seagreats" 
+                href="https://github.com/Bluehostn/Seagreats-vs" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center p-2 hover:bg-gray-50 rounded-md text-blue-600 hover:text-blue-700"

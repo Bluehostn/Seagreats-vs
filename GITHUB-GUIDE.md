@@ -38,7 +38,7 @@ git add .
 git commit -m "النسخة الأولية من موقع Sea Greats مع التأثيرات الحركية ودعم GitHub"
 
 # إضافة المستودع البعيد
-git remote add origin https://github.com/Bluehostn/Seagreats.git
+git remote add origin https://github.com/Bluehostn/Seagreats-vs.git
 
 # دفع التغييرات إلى المستودع البعيد
 git push -u origin main

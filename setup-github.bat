@@ -58,7 +58,7 @@ echo.
 echo [5] ربط المشروع بمستودع GitHub...
 
 :: ربط المستودع
-git remote add origin https://github.com/Bluehostn/Seagreats.git
+git remote add origin https://github.com/Bluehostn/Seagreats-vs.git
 
 echo.
 echo [6] دفع الكود إلى GitHub...
@@ -81,7 +81,7 @@ if %ERRORLEVEL% NEQ 0 (
   echo.
   echo [✓] تم ربط المشروع بنجاح مع مستودع GitHub!
   echo    يمكنك الآن الوصول إلى المشروع على GitHub:
-  echo    https://github.com/Bluehostn/Seagreats
+  echo    https://github.com/Bluehostn/Seagreats-vs
 )
 
 echo.
