@@ -1,33 +1,61 @@
 
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import WhatsAppButton from '../../components/WhatsAppButton';
+import { useState, useEffect } from 'react';
+import PageTemplate, { ContentSection, FeatureGrid } from '../../components/PageTemplate';
+import Link from 'next/link';
 
 export default function AboutPage() {
+  const [language, setLanguage] = useState('ar');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const savedLang = localStorage.getItem('language') || 'ar';
+    setLanguage(savedLang);
+  }, []);
+
   const values = [
     {
       icon: 'ri-award-line',
       title: 'الجودة',
-      description: 'نلتزم بتقديم منتجات وخدمات عالية الجودة تفوق توقعات عملائنا'
+      titleEn: 'Quality',
+      description: 'نلتزم بتقديم منتجات وخدمات عالية الجودة تفوق توقعات عملائنا',
+      descriptionEn: 'We are committed to providing high-quality products and services that exceed our customers\' expectations'
     },
     {
       icon: 'ri-shield-check-line',
       title: 'الموثوقية',
-      description: 'شريك موثوق يمكن الاعتماد عليه في جميع الأوقات والظروف'
+      titleEn: 'Reliability',
+      description: 'شريك موثوق يمكن الاعتماد عليه في جميع الأوقات والظروف',
+      descriptionEn: 'A trusted partner you can rely on at all times and circumstances'
     },
     {
       icon: 'ri-customer-service-line',
       title: 'خدمة العملاء',
-      description: 'نضع العميل في المقدمة ونسعى لتحقيق رضاه الكامل'
+      titleEn: 'Customer Service',
+      description: 'نضع العميل في المقدمة ونسعى لتحقيق رضاه الكامل',
+      descriptionEn: 'We put the customer first and strive to achieve their complete satisfaction'
     },
     {
       icon: 'ri-global-line',
       title: 'الابتكار',
-      description: 'نستخدم أحدث التقنيات والحلول المبتكرة في خدماتنا'
+      titleEn: 'Innovation',
+      description: 'نستخدم أحدث التقنيات والحلول المبتكرة في خدماتنا',
+      descriptionEn: 'We use the latest technologies and innovative solutions in our services'
     }
   ];
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-primary-50 to-accent-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600 mx-auto mb-4"></div>
+          <p className="text-primary-600 text-lg">جاري تحميل الصفحة...</p>
+        </div>
+      </div>
+    );
+  }
 
   const team = [
     {
@@ -45,30 +73,23 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Header />
-
-      {/* Hero Section */}
-      <section 
-        className="relative h-96 flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(106, 13, 173, 0.8), rgba(106, 13, 173, 0.8)), url('https://readdy.ai/api/search-image?query=Professional%20maritime%20company%20headquarters%20building%20with%20modern%20architecture%20ships%20in%20background%20corporate%20business%20environment%20clean%20professional%20photography&width=1920&height=600&seq=about-hero&orientation=landscape')`
-        }}
-      >
-        <div className="container mx-auto px-4 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">نبذة عنا</h1>
-          <p className="text-xl md:text-2xl">تعرف على قصة نجاح Sea Greats</p>
-        </div>
-      </section>
+    <PageTemplate
+      title="نبذة عنا"
+      titleEn="About Us"
+      description="تعرف على قصة نجاح Sea Greats في عالم التوريدات البحرية"
+      descriptionEn="Learn about Sea Greats' success story in the world of marine supplies"
+      language={language}
+    >
 
       {/* Company Story */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">قصة نجاحنا</h2>
-              <div className="w-24 h-1 bg-primary mx-auto"></div>
-            </div>
+      <ContentSection>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              {language === 'ar' ? 'قصة نجاحنا' : 'Our Success Story'}
+            </h2>
+            <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
+          </div>
 
             <div className="space-y-12">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -111,11 +132,10 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </ContentSection>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <ContentSection background="gray">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="text-center lg:text-right">
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto lg:mx-0 lg:mr-auto mb-8">
@@ -260,10 +280,18 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </ContentSection>
 
-      <Footer />
-      <WhatsAppButton />
-    </div>
+      {/* Company Values */}
+      <ContentSection>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            {language === 'ar' ? 'قيمنا' : 'Our Values'}
+          </h2>
+          <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
+        </div>
+        <FeatureGrid features={values} language={language} />
+      </ContentSection>
+    </PageTemplate>
   );
 }

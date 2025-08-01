@@ -1,11 +1,18 @@
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import WhatsAppButton from '../../components/WhatsAppButton';
+import { useState, useEffect } from 'react';
+import PageTemplate, { ContentSection } from '../../components/PageTemplate';
 import Link from 'next/link';
 
 export default function ServicesPage() {
+  const [language, setLanguage] = useState('ar');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const savedLang = localStorage.getItem('language') || 'ar';
+    setLanguage(savedLang);
+  }, []);
   const services = [
     {
       icon: 'ri-ship-line',
