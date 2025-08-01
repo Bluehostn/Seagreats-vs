@@ -1,0 +1,158 @@
+
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { FadeIn, StaggerChildren } from './Animations';
+
+const Services = ({ locale, dict }: { locale: string; dict: any }) => {
+  const services = [
+    {
+      id: 1,
+      title: locale === 'en' ? dict.services.sections.shipSupply.title : dict.services.sections.shipSupply.title,
+      description: locale === 'en' 
+        ? dict.services.sections.shipSupply.description 
+        : dict.services.sections.shipSupply.description,
+      image: '/Images/WhatsApp Image 2025-07-31 at 1.04.08 AM (1).jpeg',
+      link: '/services/ship-supply',
+      icon: 'ri-ship-line'
+    },
+    {
+      id: 2,
+      title: locale === 'en' ? dict.services.sections.machinery.title : dict.services.sections.machinery.title,
+      description: locale === 'en'
+        ? dict.services.sections.machinery.description
+        : dict.services.sections.machinery.description,
+      image: '/Images/WhatsApp Image 2025-07-31 at 1.04.09 AM (1).jpeg',
+      link: '/services/machinery-supplies',
+      icon: 'ri-settings-3-line'
+    },
+    {
+      id: 3,
+      title: locale === 'en' ? dict.services.sections.marine.title : dict.services.sections.marine.title,
+      description: locale === 'en'
+        ? dict.services.sections.marine.description
+        : dict.services.sections.marine.description,
+      image: '/Images/WhatsApp Image 2025-07-31 at 1.04.10 AM (1).jpeg',
+      link: '/services/marine-equipment',
+      icon: 'ri-compass-3-line'
+    },
+    {
+      id: 4,
+      title: locale === 'en' ? dict.services.sections.food.title : dict.services.sections.food.title,
+      description: locale === 'en'
+        ? dict.services.sections.food.description
+        : dict.services.sections.food.description,
+      image: '/Images/WhatsApp Image 2025-07-31 at 1.04.11 AM (1).jpeg',
+      link: '/services/food-supplies',
+      icon: 'ri-restaurant-line'
+    },
+    {
+      id: 5,
+      title: locale === 'en' ? dict.services.sections.technical.title : dict.services.sections.technical.title,
+      description: locale === 'en'
+        ? dict.services.sections.technical.description
+        : dict.services.sections.technical.description,
+      image: '/Images/WhatsApp Image 2025-07-31 at 1.04.12 AM (1).jpeg',
+      link: '/services/technical-services',
+      icon: 'ri-tools-line'
+    },
+    {
+      id: 6,
+      title: locale === 'en' ? dict.services.sections.consulting.title : dict.services.sections.consulting.title,
+      description: locale === 'en'
+        ? dict.services.sections.consulting.description
+        : dict.services.sections.consulting.description,
+      image: '/Images/WhatsApp Image 2025-07-31 at 1.04.13 AM (1).jpeg',
+      link: '/services/consulting',
+      icon: 'ri-customer-service-2-line'
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-primary-300 rounded-full mix-blend-multiply blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-300 rounded-full mix-blend-multiply blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <FadeIn direction="up" delay={100} className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
+            <span className="text-gradient">{dict.services.title}</span>
+          </h2>
+          <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
+            {dict.services.subtitle}
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto my-6"></div>
+          <p className="text-secondary-500 mt-4 max-w-2xl mx-auto">
+            {dict.services.description}
+          </p>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <FadeIn 
+              key={service.id} 
+              direction="up" 
+              delay={200 + index * 100}
+              className="hover-scale"
+            >
+              <div className="bg-white rounded-xl shadow-card overflow-hidden transition-all duration-300 hover:shadow-xl group">
+                <div className="h-48 overflow-hidden image-hover-zoom gradient-overlay">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary-900/60">
+                    <i className={`${service.icon} text-5xl text-white`}></i>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center mb-3">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-primary-100 text-primary-600">
+                      <i className={`${service.icon} text-lg`}></i>
+                    </span>
+                    <h3 className="text-xl font-bold text-secondary-900 ml-3 rtl:mr-3 rtl:ml-0">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <p className="text-secondary-600 mb-4">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={service.link}
+                    className="text-primary-600 font-medium hover:text-primary-700 inline-flex items-center transition-all duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+                  >
+                    {dict.common.readMore}
+                    <svg className={`h-4 w-4 ${locale === 'en' ? 'ml-1' : 'mr-1 rotate-180'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn direction="up" delay={800} className="text-center mt-12">
+          <Link
+            href="/services"
+            className="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-8 py-4 rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 inline-flex items-center"
+          >
+            {dict.services.viewMore}
+            <svg className={`h-5 w-5 ${locale === 'en' ? 'ml-2' : 'mr-2 rotate-180'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
+export default Services;

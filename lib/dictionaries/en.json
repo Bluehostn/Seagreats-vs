@@ -1,0 +1,146 @@
+{
+  "hero": {
+    "title": "Your Premier Partner for Marine Supplies",
+    "subtitle": "Providing all ship and maritime company needs with the highest quality standards",
+    "description": "With over 10 years of experience, Sea Greats offers integrated solutions for ship supply, marine provisions, and specialized technical services with high efficiency and competitive prices.",
+    "contactUs": "Contact Us",
+    "whatsapp": "WhatsApp"
+  },
+  "services": {
+    "title": "Our Specialized Services",
+    "subtitle": "Comprehensive Marine Supplies",
+    "description": "We provide a complete range of marine services to meet all our clients' needs efficiently and professionally",
+    "viewMore": "View More",
+    "sections": {
+      "shipSupply": {
+        "title": "Ship Supply",
+        "description": "Providing all ship needs from basic materials and supplies with the highest quality and safety standards"
+      },
+      "machinery": {
+        "title": "Machinery Supplies",
+        "description": "High-quality marine machinery spare parts and supplies with guaranteed optimal performance"
+      },
+      "marine": {
+        "title": "Marine Equipment",
+        "description": "Advanced and safe navigation equipment and marine tools that meet international standards"
+      },
+      "food": {
+        "title": "Food Supplies",
+        "description": "Fresh and preserved food supplies for ship crews meeting healthy nutrition requirements"
+      },
+      "technical": {
+        "title": "Technical Services",
+        "description": "Specialized technical services and comprehensive maintenance by professional technicians"
+      },
+      "consulting": {
+        "title": "Marine Consulting",
+        "description": "Specialized consulting in the marine field to improve operational efficiency"
+      },
+      "chemical": {
+        "title": "Chemical Supplies",
+        "description": "Specialized chemicals for marine maintenance and cleaning with high safety standards"
+      },
+      "workTools": {
+        "title": "Work Tools",
+        "description": "Specialized work tools for marine operations and maintenance from the best brands"
+      },
+      "electrical": {
+        "title": "Electrical Equipment",
+        "description": "Electrical equipment and spare parts for marine systems with the highest quality and safety standards"
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Why Choose Sea Greats?",
+    "subtitle": "Your Best Partner for Marine Supplies",
+    "reasons": {
+      "experience": {
+        "title": "Extensive Experience",
+        "description": "Over 10 years of experience in the field of marine supplies and ship provisioning"
+      },
+      "quality": {
+        "title": "High Quality",
+        "description": "We provide high-quality products and services that comply with international standards"
+      },
+      "delivery": {
+        "title": "Fast Delivery",
+        "description": "We adhere to precise delivery schedules and provide fast delivery service for urgent orders"
+      },
+      "prices": {
+        "title": "Competitive Prices",
+        "description": "We offer the best prices in the market while maintaining the highest levels of quality"
+      },
+      "solutions": {
+        "title": "Integrated Solutions",
+        "description": "We provide an integrated package of services and supplies that meet all customer needs"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Specialized support team available 24/7 to answer your inquiries and fulfill your emergency requests"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're Here to Help",
+    "description": "We're happy to receive your inquiries and requests. You can contact us through the following form or via direct contact information",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Submit",
+      "success": "Your message has been sent successfully. We will contact you soon.",
+      "error": "An error occurred while sending the message. Please try again."
+    },
+    "info": {
+      "address": "Address: Alexandria, Egypt",
+      "phone": "Phone: +20 100 123 4567",
+      "email": "Email: info@seagreats.com",
+      "hours": "Working Hours: Saturday - Thursday: 9 AM - 5 PM"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "About Us",
+      "description": "Sea Greats specializes in ship supply and marine provisions, providing services with the highest standards of quality and professionalism."
+    },
+    "links": {
+      "title": "Quick Links",
+      "home": "Home",
+      "about": "About Us",
+      "services": "Our Services",
+      "contact": "Contact Us"
+    },
+    "services": {
+      "title": "Our Services",
+      "shipSupply": "Ship Supply",
+      "machinery": "Machinery Supplies",
+      "marine": "Marine Equipment",
+      "technical": "Technical Services"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "address": "Alexandria, Egypt",
+      "phone": "+20 100 123 4567",
+      "email": "info@seagreats.com"
+    },
+    "copyright": "All Rights Reserved © 2023 Sea Greats Company"
+  },
+  "common": {
+    "readMore": "Read More",
+    "goBack": "Go Back",
+    "loading": "Loading...",
+    "notFound": "Page Not Found",
+    "error": "Something went wrong"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact",
+    "admin": "Dashboard",
+    "language": "العربية"
+  }
+}

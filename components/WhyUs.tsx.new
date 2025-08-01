@@ -1,0 +1,249 @@
+
+'use client';
+
+import Image from 'next/image';
+import { useState } from 'react';
+import { FadeIn, StaggerChildren, Pulse } from './Animations';
+
+const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const reasons = [
+    {
+      id: 1,
+      title: dict.whyUs.reasons.experience.title,
+      description: dict.whyUs.reasons.experience.description,
+      icon: 'ri-time-line',
+      bgColor: 'bg-blue-100',
+      iconColor: 'text-blue-600'
+    },
+    {
+      id: 2,
+      title: dict.whyUs.reasons.quality.title,
+      description: dict.whyUs.reasons.quality.description,
+      icon: 'ri-check-double-line',
+      bgColor: 'bg-green-100',
+      iconColor: 'text-green-600'
+    },
+    {
+      id: 3,
+      title: dict.whyUs.reasons.delivery.title,
+      description: dict.whyUs.reasons.delivery.description,
+      icon: 'ri-24-hours-line',
+      bgColor: 'bg-purple-100',
+      iconColor: 'text-purple-600'
+    },
+    {
+      id: 4,
+      title: dict.whyUs.reasons.prices.title,
+      description: dict.whyUs.reasons.prices.description,
+      icon: 'ri-coin-line',
+      bgColor: 'bg-yellow-100',
+      iconColor: 'text-yellow-600'
+    },
+    {
+      id: 5,
+      title: dict.whyUs.reasons.solutions.title,
+      description: dict.whyUs.reasons.solutions.description,
+      icon: 'ri-global-line',
+      bgColor: 'bg-indigo-100',
+      iconColor: 'text-indigo-600'
+    },
+    {
+      id: 6,
+      title: dict.whyUs.reasons.support.title,
+      description: dict.whyUs.reasons.support.description,
+      icon: 'ri-team-line',
+      bgColor: 'bg-red-100',
+      iconColor: 'text-red-600'
+    }
+  ];
+
+  const tabs = [
+    {
+      id: 'cash',
+      title: locale === 'en' ? 'Cash Payments' : 'الدفع النقدي',
+      icon: 'ri-money-dollar-box-line',
+      content: locale === 'en' 
+        ? 'We accept cash payments for immediate transactions, making it convenient for quick orders and supplies.' 
+        : 'نقبل المدفوعات النقدية للمعاملات الفورية، مما يجعلها مناسبة للطلبات والإمدادات السريعة.'
+    },
+    {
+      id: 'credit',
+      title: locale === 'en' ? 'Credit Terms' : 'شروط الائتمان',
+      icon: 'ri-bank-card-line',
+      content: locale === 'en'
+        ? 'We offer flexible credit terms for regular clients, helping you manage cash flow and operational expenses.'
+        : 'نقدم شروط ائتمان مرنة للعملاء المنتظمين، مما يساعدك على إدارة التدفق النقدي ونفقات التشغيل.'
+    },
+    {
+      id: 'invoicing',
+      title: locale === 'en' ? 'Flexible Invoicing' : 'فواتير مرنة',
+      icon: 'ri-file-list-3-line',
+      content: locale === 'en'
+        ? 'Our invoicing system adapts to your business needs, offering detailed documentation and flexible payment schedules.'
+        : 'يتكيف نظام الفواتير لدينا مع احتياجات عملك، ويقدم وثائق مفصلة وجداول دفع مرنة.'
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-gradient-to-b from-white to-secondary-50 relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
+      <div className="absolute pointer-events-none">
+        <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-blue-50 blur-3xl opacity-70"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-indigo-50 blur-3xl opacity-70"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <FadeIn direction="up" delay={100} className="text-center mb-16">
+          <span className="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-2 block">
+            {dict.whyUs.subtitle}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
+            {dict.whyUs.title}
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto my-6"></div>
+          <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
+            {locale === 'en'
+              ? 'We are committed to providing exceptional maritime supply services with a focus on quality, reliability, and customer satisfaction.'
+              : 'نحن ملتزمون بتقديم خدمات توريد بحرية استثنائية مع التركيز على الجودة والموثوقية ورضا العملاء.'}
+          </p>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          {reasons.map((reason, index) => (
+            <FadeIn 
+              key={reason.id} 
+              direction="up" 
+              delay={200 + index * 100}
+              className="relative"
+            >
+              <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 group h-full">
+                <div className="absolute -top-4 left-6 w-16 h-16 flex items-center justify-center rounded-lg shadow-lg transform group-hover:scale-110 transition-transform duration-300"
+                    style={{background: 'linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)'}}>
+                  <i className={`${reason.icon} text-2xl text-white`}></i>
+                </div>
+                <div className="pt-12 pb-4">
+                  <h3 className="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors">
+                    {reason.title}
+                  </h3>
+                  <p className="text-secondary-600">
+                    {reason.description}
+                  </p>
+                </div>
+
+                {/* Accent border bottom */}
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-full transition-all duration-300"></div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn direction="up" delay={600} className="mt-16">
+          <div className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
+            <div className="flex flex-col lg:flex-row">
+              <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-gradient mb-6">
+                  {locale === 'en' ? 'Flexible Payment Options' : 'خيارات دفع مرنة'}
+                </h3>
+
+                <div className="flex border-b mb-6">
+                  {tabs.map((tab, index) => (
+                    <button
+                      key={tab.id}
+                      className={`px-4 py-3 flex items-center text-sm font-medium transition-all duration-200 ${
+                        activeTab === index 
+                          ? 'text-primary-600 border-b-2 border-primary-500' 
+                          : 'text-secondary-500 hover:text-secondary-700'
+                      }`}
+                      onClick={() => setActiveTab(index)}
+                    >
+                      <i className={`${tab.icon} mr-2 rtl:ml-2 rtl:mr-0 text-lg`}></i>
+                      {tab.title}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  {tabs.map((tab, index) => (
+                    <div 
+                      key={tab.id}
+                      className={`transition-opacity duration-300 ${activeTab === index ? 'block opacity-100' : 'hidden opacity-0'}`}
+                    >
+                      <p className="text-secondary-700">{tab.content}</p>
+
+                      <div className="mt-6 space-y-3">
+                        {[1, 2, 3].map((item) => (
+                          <div key={item} className="flex items-center">
+                            <div className="bg-green-100 p-1 rounded-full">
+                              <i className="ri-check-line text-green-600"></i>
+                            </div>
+                            <span className="text-secondary-700 ml-3 rtl:mr-3 rtl:ml-0 text-sm">
+                              {locale === 'en' 
+                                ? `Feature ${item} of ${tab.title}` 
+                                : `ميزة ${item} من ${tab.title}`}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:w-1/2 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-secondary-600/20 mix-blend-multiply"></div>
+                <Image
+                  src="/Images/WhatsApp Image 2025-07-31 at 1.04.14 AM (1).jpeg"
+                  alt={locale === 'en' ? 'Payment Options' : 'خيارات الدفع'}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                />
+                <Pulse 
+                  className="absolute top-6 right-6 bg-white text-primary-600 p-3 rounded-full shadow-lg"
+                  scale={1.1}
+                  duration={1.5}
+                >
+                  <i className="ri-secure-payment-line text-2xl"></i>
+                </Pulse>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Stats Section */}
+        <FadeIn direction="up" delay={800} className="mt-20">
+          <div className="bg-gradient-to-r from-primary-700 to-primary-900 text-white p-8 rounded-xl shadow-xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <StaggerChildren staggerDelay={150} initialDelay={100} direction="up">
+                <div className="transform transition-all duration-300 hover:scale-105">
+                  <div className="text-4xl font-bold mb-2">500+</div>
+                  <div className="text-primary-200 text-sm">{locale === 'en' ? 'Global Clients' : 'عملاء عالميين'}</div>
+                </div>
+
+                <div className="transform transition-all duration-300 hover:scale-105">
+                  <div className="text-4xl font-bold mb-2">12+</div>
+                  <div className="text-primary-200 text-sm">{locale === 'en' ? 'Years Experience' : 'سنوات من الخبرة'}</div>
+                </div>
+
+                <div className="transform transition-all duration-300 hover:scale-105">
+                  <div className="text-4xl font-bold mb-2">24/7</div>
+                  <div className="text-primary-200 text-sm">{locale === 'en' ? 'Customer Support' : 'دعم العملاء'}</div>
+                </div>
+
+                <div className="transform transition-all duration-300 hover:scale-105">
+                  <div className="text-4xl font-bold mb-2">99%</div>
+                  <div className="text-primary-200 text-sm">{locale === 'en' ? 'Client Satisfaction' : 'رضا العملاء'}</div>
+                </div>
+              </StaggerChildren>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
+export default WhyUs;

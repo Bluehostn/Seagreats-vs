@@ -1,0 +1,227 @@
+
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+
+export default function Footer() {
+  const [language, setLanguage] = useState('ar');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const savedLang = localStorage.getItem('language') || 'ar';
+    setLanguage(savedLang);
+  }, []);
+
+  return (
+    <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white relative overflow-hidden">
+      {/* Wave decoration */}
+      <div className="absolute top-0 left-0 w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-20 -translate-y-[90%] opacity-10">
+          <path fill="#0ea5e9" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-4 py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3 rtl:space-x-reverse">
+              <img
+                src="https://static.readdy.ai/image/dfa00478676086a8624b0f515714071b/f14f9993bcd951a53cd82f20c8f9e072.png"
+                alt="Sea Greats Logo"
+                className="w-16 h-16 object-contain"
+                style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+              />
+              <span className="logo-text text-3xl font-bold text-white">Sea Greats</span>
+            </div>
+            <p className="text-gray-300 leading-relaxed">
+              {language === 'ar' 
+                ? 'شركة متخصصة في تموين السفن والتوريدات البحرية، نقدم خدمات شاملة لجميع احتياجاتكم البحرية بأعلى معايير الجودة.'
+                : 'A company specialized in ship supply and marine provisions, providing comprehensive services for all your marine needs with the highest quality standards.'
+              }
+            </p>
+            <div className="flex space-x-4 rtl:space-x-reverse">
+              <a 
+                href="https://wa.me/201024886944" 
+                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                aria-label="WhatsApp"
+              >
+                <i className="ri-whatsapp-line text-white"></i>
+              </a>
+              <a 
+                href="mailto:info@seagreats.com" 
+                className="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                aria-label="Email"
+              >
+                <i className="ri-mail-line text-white"></i>
+              </a>
+              <a 
+                href="https://www.facebook.com/" 
+                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                aria-label="Facebook"
+              >
+                <i className="ri-facebook-fill text-white"></i>
+              </a>
+              <a 
+                href="https://www.instagram.com/" 
+                className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                aria-label="Instagram"
+              >
+                <i className="ri-instagram-line text-white"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white after:content-[''] after:block after:w-12 after:h-1 after:bg-primary-500 after:mt-2">
+              {language === 'ar' ? 'روابط سريعة' : 'Quick Links'}
+            </h3>
+            <nav className="flex flex-col space-y-3">
+              <Link href="/" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'الرئيسية' : 'Home'}
+              </Link>
+              <Link href="/about" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'نبذة عنا' : 'About Us'}
+              </Link>
+              <Link href="/services" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'خدماتنا' : 'Our Services'}
+              </Link>
+              <Link href="/contact" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'اتصل بنا' : 'Contact Us'}
+              </Link>
+            </nav>
+          </div>
+
+          {/* Services */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white after:content-[''] after:block after:w-12 after:h-1 after:bg-primary-500 after:mt-2">
+              {language === 'ar' ? 'خدماتنا' : 'Our Services'}
+            </h3>
+            <nav className="flex flex-col space-y-3">
+              <Link href="/services/ship-supply" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'تموين السفن' : 'Ship Supply'}
+              </Link>
+              <Link href="/services/machinery-supplies" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'مستلزمات الماكينات' : 'Machinery Supplies'}
+              </Link>
+              <Link href="/services/marine-equipment" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'المعدات البحرية' : 'Marine Equipment'}
+              </Link>
+              <Link href="/services/food-supplies" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'المواد الغذائية' : 'Food Supplies'}
+              </Link>
+              <Link href="/services/technical-services" className="text-gray-300 hover:text-primary-400 transition-all duration-300 flex items-center group">
+                <i className="ri-arrow-right-s-line rtl:hidden mr-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                <i className="ri-arrow-left-s-line ltr:hidden ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                {language === 'ar' ? 'الخدمات الفنية' : 'Technical Services'}
+              </Link>
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white after:content-[''] after:block after:w-12 after:h-1 after:bg-primary-500 after:mt-2">
+              {language === 'ar' ? 'معلومات الاتصال' : 'Contact Info'}
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-4 rtl:space-x-reverse">
+                <div className="w-10 h-10 bg-primary-600/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                  <i className="ri-phone-line text-primary-400"></i>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-400 mb-1">{language === 'ar' ? 'اتصل بنا' : 'Phone'}</h4>
+                  <a href="tel:+201024886944" className="text-gray-300 hover:text-primary-400 transition-colors">+201024886944</a>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4 rtl:space-x-reverse">
+                <div className="w-10 h-10 bg-primary-600/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                  <i className="ri-mail-line text-primary-400"></i>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-400 mb-1">{language === 'ar' ? 'البريد الإلكتروني' : 'Email'}</h4>
+                  <a href="mailto:info@seagreats.com" className="text-gray-300 hover:text-primary-400 transition-colors break-all">info@seagreats.com</a>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4 rtl:space-x-reverse">
+                <div className="w-10 h-10 bg-primary-600/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                  <i className="ri-map-pin-line text-primary-400"></i>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-gray-400 mb-1">{language === 'ar' ? 'العنوان' : 'Address'}</h4>
+                  <span className="text-gray-300">
+                    {language === 'ar' ? 'مصر، السويس، الملاحة' : 'Egypt, Suez, Al Malaha'}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Newsletter */}
+        <div className="bg-gray-800/30 rounded-lg p-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div className="col-span-1 md:col-span-2 space-y-3">
+              <h3 className="text-xl font-bold">
+                {language === 'ar' ? 'اشترك في نشرتنا الإخبارية' : 'Subscribe to Our Newsletter'}
+              </h3>
+              <p className="text-gray-400">
+                {language === 'ar' 
+                  ? 'احصل على آخر العروض والتحديثات مباشرة إلى بريدك الإلكتروني'
+                  : 'Get the latest offers and updates directly to your email'
+                }
+              </p>
+            </div>
+            <div>
+              <form className="flex">
+                <input 
+                  type="email" 
+                  placeholder={language === 'ar' ? 'البريد الإلكتروني' : 'Email address'} 
+                  className="flex-grow bg-gray-700 border border-gray-600 rounded-s-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors"
+                />
+                <button 
+                  type="submit" 
+                  className="bg-primary-600 hover:bg-primary-500 text-white rounded-e-lg px-4 transition-colors"
+                >
+                  <i className="ri-send-plane-fill"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-700 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-center md:text-right">
+              © {new Date().getFullYear()} Sea Greats. {language === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}
+            </p>
+            <p className="text-gray-400 text-center md:text-left">
+              {language === 'ar' ? 'تصميم بواسطة' : 'Designed by'}
+              <a href="https://wa.me/201010624048" className="text-primary-400 hover:text-primary-300 transition-colors mx-1">
+                Bluehostn - {language === 'ar' ? 'محمد عاطي' : 'Mohamed Aty'}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
