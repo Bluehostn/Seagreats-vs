@@ -5,8 +5,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
     {
       id: 1,
       title: locale === 'en' ? '10+ Years Experience' : 'أكثر من 10 سنوات خبرة',
-      description: locale === 'en' 
-        ? 'With over a decade of experience in the maritime industry, we have built a reputation for reliability and excellence.' 
+      description: locale === 'en'
+        ? 'With over a decade of experience in the maritime industry, we have built a reputation for reliability and excellence.'
         : 'مع أكثر من عقد من الخبرة في الصناعة البحرية، بنينا سمعة للموثوقية والتميز.',
       icon: (
         <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -17,8 +17,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
     {
       id: 2,
       title: locale === 'en' ? 'Quality Products' : 'منتجات عالية الجودة',
-      description: locale === 'en' 
-        ? 'We source only the highest quality products from reputable suppliers to ensure the satisfaction of our clients.' 
+      description: locale === 'en'
+        ? 'We source only the highest quality products from reputable suppliers to ensure the satisfaction of our clients.'
         : 'نوفر فقط منتجات عالية الجودة من موردين موثوقين لضمان رضا عملائنا.',
       icon: (
         <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,8 +29,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
     {
       id: 3,
       title: locale === 'en' ? '24/7 Availability' : 'متاحون على مدار الساعة',
-      description: locale === 'en' 
-        ? 'Our team is available around the clock to respond to your needs and provide timely solutions.' 
+      description: locale === 'en'
+        ? 'Our team is available around the clock to respond to your needs and provide timely solutions.'
         : 'فريقنا متاح على مدار الساعة للاستجابة لاحتياجاتكم وتقديم حلول في الوقت المناسب.',
       icon: (
         <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,8 +41,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
     {
       id: 4,
       title: locale === 'en' ? 'Competitive Pricing' : 'أسعار تنافسية',
-      description: locale === 'en' 
-        ? 'We offer competitive pricing without compromising on quality, ensuring value for money for our clients.' 
+      description: locale === 'en'
+        ? 'We offer competitive pricing without compromising on quality, ensuring value for money for our clients.'
         : 'نقدم أسعاراً تنافسية دون المساس بالجودة، مما يضمن قيمة مقابل المال لعملائنا.',
       icon: (
         <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,8 +53,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
     {
       id: 5,
       title: locale === 'en' ? 'Global Network' : 'شبكة عالمية',
-      description: locale === 'en' 
-        : 'We have established a strong network of suppliers and partners worldwide to meet your diverse needs.' 
+      description: locale === 'en'
+        ? 'We have established a strong network of suppliers and partners worldwide to meet your diverse needs.'
         : 'أقمنا شبكة قوية من الموردين والشركاء حول العالم لتلبية احتياجاتكم المتنوعة.',
       icon: (
         <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,8 +65,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
     {
       id: 6,
       title: locale === 'en' ? 'Expert Team' : 'فريق من الخبراء',
-      description: locale === 'en' 
-        ? 'Our team consists of experienced professionals who are dedicated to providing exceptional service.' 
+      description: locale === 'en'
+        ? 'Our team consists of experienced professionals who are dedicated to providing exceptional service.'
         : 'يتكون فريقنا من محترفين ذوي خبرة مكرسين لتقديم خدمة استثنائية.',
       icon: (
         <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -84,8 +84,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
             {locale === 'en' ? 'Why Choose Sea Greats?' : 'لماذا تختار سي جريتس؟'}
           </h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-            {locale === 'en' 
-              ? 'We are committed to providing exceptional maritime supply services with a focus on quality, reliability, and customer satisfaction.' 
+            {locale === 'en'
+              ? 'We are committed to providing exceptional maritime supply services with a focus on quality, reliability, and customer satisfaction.'
               : 'نحن ملتزمون بتقديم خدمات توريد بحرية استثنائية مع التركيز على الجودة والموثوقية ورضا العملاء.'}
           </p>
         </div>
@@ -115,8 +115,8 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
                 {locale === 'en' ? 'Payment Options' : 'خيارات الدفع'}
               </h3>
               <p className="text-secondary-600 mb-6">
-                {locale === 'en' 
-                  ? 'We offer flexible payment options to suit your business needs, including both cash and credit terms.' 
+                {locale === 'en'
+                  ? 'We offer flexible payment options to suit your business needs, including both cash and credit terms.'
                   : 'نقدم خيارات دفع مرنة تناسب احتياجات عملك، بما في ذلك الدفع النقدي وشروط الائتمان.'}
               </p>
               <div className="space-y-4">
@@ -153,10 +153,10 @@ const WhyUs = ({ locale, dict }: { locale: string; dict: any }) => {
               </div>
             </div>
             <div className="md:w-1/2">
-              <Image 
-                src="/Images/WhatsApp Image 2025-07-31 at 1.04.14 AM (1).jpeg" 
-                alt={locale === 'en' ? 'Payment Options' : 'خيارات الدفع'} 
-                width={600} 
+              <Image
+                src="/Images/WhatsApp Image 2025-07-31 at 1.04.14 AM (1).jpeg"
+                alt={locale === 'en' ? 'Payment Options' : 'خيارات الدفع'}
+                width={600}
                 height={400}
                 className="w-full h-full object-cover"
               />
